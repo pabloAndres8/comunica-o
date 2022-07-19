@@ -87,7 +87,7 @@ body {font-family: "Lato", sans-serif}
         Seminário Abertura de Empresas: Descomplicando a Formalização de Negócios nos Municípios
         Mais informações: redesim@jucec.ce.gov.br</span></p>
 
-        <button class="w3-button w3-black w3-margin-bottom" onclick="" id="btnLeiaMais">Leia Mais</button>
+        <button class="w3-button w3-black w3-margin-bottom" onclick="leiaMais" id="btnLeiaMais">Leia Mais</button>
 
     <div class="w3-row w3-padding-32" id="band">
      
@@ -220,36 +220,19 @@ FORTALEZA, CE</p><br>
 
 <script>
 // Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
+function leiaMais(){
+  var pontos = document.getElementById("pontos");
+  var maisTexto = document.getElementById("mais");
+  var btnLeiaMais = document.getElementById("btnLeiaMais");
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if(pontos.style.display === "none"){
+    pontos.style.display = "inline";
+    maisTexto.style.display = "none";
+    btnLeiaMais.innerHTML = "Leia Mais";
+  }else{
+    pontos.style.display = "none";
+    maisTexto.style.display = "inline";
+    btnLeiaMais.innerHTML = "Leia Menos";
   }
 }
 </script>
